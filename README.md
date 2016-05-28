@@ -12,8 +12,6 @@ URL: **[Leo's blog on Heroku](http://safe-sands-36326.herokuapp.com/)**
 
 The following **required** functionality is complete:
 
-> HINT: mark the items you completed with [x]
-
 * [x] User can create a new post, formatted using the Markdown language.
 * [x] User can edit an existing post.
 * [x] There is one post that introduces the App Creator with name, picture.

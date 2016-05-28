@@ -1,9 +1,4 @@
-# Pre-work - *Name of App Here*
-
-> HINT: Please
-> - include this README.md in your project and fill out the information. 
-> - remove the `README.rdoc` file that Rails generates. 
-> - remove all the HINT blocks in this file.
+# Pre-work - *Leo's Blog*
 
 **Leo** is a Ruby on Rails blog application.
 

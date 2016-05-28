@@ -6,11 +6,27 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC")
+    elsif !params[:filter].blank?
+      @articles = Article.tagged_with(params[:filter])
+    else
+      @articles = Article.all.order("created_at DESC")
+    end
+    # binding.pry
+    if @articles.size == 0
+      flash[:notice] = "Not found!"
+    else
+      flash[:notice] = nil
+    end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article.view += 1
+    @article.save
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /articles/new
@@ -70,6 +86,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :all_tags)
     end
 end

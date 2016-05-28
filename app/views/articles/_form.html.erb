@@ -11,15 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: '5', class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label 'Tags' %>
+    <%= f.text_field :all_tags, placeholder: 'Tags separated with comma', class: 'form-control' %>
   </div>
+  <%= f.submit @article.new_record? ? "Create" : "Update", :class=> "btn btn-primary" %>
 <% end %>
